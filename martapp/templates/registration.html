@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+{% block content %}
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Review Table</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      
+                      <th>firstname</th>
+                      <th>lastname</th>
+                      <th>phonenumber</th>
+                      <th>username</th>
+                      <th>password</th>
+                    
+                         
+                    </tr>
+                    {% for i in data1 %}
+                    <tr>
+                     
+                      <td>{{i.firstname}}</td>
+                      <td>{{i.lastname}}</td>
+                      <td>{{i.phonenumber}}</td>
+                      <td>{{i.username}}</td>
+                      <td>{{i.password}}</td>
+                      
+                    </tr>
+                    {% endfor  %}
+                    <tr>
+                     
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+             
+            </div>
+            <!-- /.card -->
+
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+         
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+       
+        <!-- /.row -->
+      
+        <!-- /.row -->
+        
+        <!-- /.row -->
+       
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ 
+
+{% endblock%}

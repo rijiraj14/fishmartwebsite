@@ -1,0 +1,82 @@
+{% extends 'index3.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>See more Details</p>
+						<h1>Single Product</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- single product -->
+	<div class="single-product mt-150 mb-150">
+		<div class="container">
+			{% for i in data1 %}
+				<form method="post" action="{% url 'cart1' pid=i.id %}">
+					{% csrf_token %}
+			<div class="row">
+				
+				<div class="col-md-5">
+					<div class="single-product-img">
+						<img src="{{i.photo.url}}" alt="">
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="single-product-content">
+						<h3>{{i.productname}}</h3>
+						<p class="single-product-pricing"><span>Per Kg</span> Rs.{{i.price}}/-</p>
+						<div class="single-product-form">
+							
+								<input type="hidden" value="{{i.price}}" id="price">
+								<input type="hidden" value="{{request.session.id}}" name="userid">
+								<input type="number" placeholder="0" min="1" max="10" name="quantity" id="qua">
+								<input type="number" placeholder="Total" id="tot" name="total">
+								<input type="submit" value="Add to Cart" class="cart-btn"> 
+							<p><strong>Categories: </strong>Fresh, fishes</p>
+						</div>
+						<h4>Share:</h4>
+						<ul class="product-share">
+							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href=""><i class="fab fa-twitter"></i></a></li>
+							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</form>
+				{% endfor %}
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#qua").change(function(){
+   var quantity =$('#qua').val()
+   var price =$('#price').val()
+   var stotal = quantity*price
+   $ ('#tot').val(stotal)
+//    alert(price)
+  });
+});
+</script>
+</head>
+
+
+
+
+    {% endblock %}
+
+	

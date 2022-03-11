@@ -1,0 +1,40 @@
+{% extends 'index3.html' %}
+
+{% block content %}
+	<!-- breadcrumb-section -->
+
+	<!-- contact form -->
+	<div class="contact-from-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mb-5 mb-lg-0">
+				
+				 	<div id="form_status"></div>
+					<div class="contact-form">
+						<form method="post" action="{% url 'regi' %}" >
+                        {% csrf_token %}
+							<p>
+								<input type="text" placeholder="firstName" name="firstname" id="first name">
+								<input type="text" placeholder="lastname" name="lastname" id="last name">
+							</p>
+							<p>
+								<input type="tel" placeholder="phonenumber" name="phonenumber" id="phonenumber">
+							</p>
+                            <p>
+								<input type="text" placeholder="username" name="username" id="username">
+								<input style="    width: 49%;
+								padding: 15px;
+								border: 1px solid #ddd;
+								border-radius: 3px;"
+								 type="password" placeholder="password" name="password" id="password">
+							</p>
+							<p><input type="submit" value="Submit"></p>
+						</form>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- end contact form -->
+{% endblock %}

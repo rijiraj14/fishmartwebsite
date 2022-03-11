@@ -1,0 +1,61 @@
+
+{% extends 'index3.html' %}
+
+{% block content %}
+
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Fresh catch</p>
+						<h1>All products</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- products -->
+	<div class="product-section mt-150 mb-150">
+		<div class="container">
+			<div class="row product-lists">
+				{% for i in data1 %}
+
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+
+						<div class="product-image">
+							<a href="{% url 'single' pid=i.id %}"><img src="{{i.photo.url}}" alt="" width="400" height="200"  ></a>
+						</div>
+						<h3>{{i.productname}}</h3>
+						<p class="product-price"><span></span> </p>
+						<a href="{% url 'single' pid=i.id %}" class="cart-btn"> VIEW PRODUCTS</a>
+						
+						</div>
+						</div>
+						{% endfor %}
+
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="pagination-wrap">
+						<ul>
+							<li><a href="#">Prev</a></li>
+							<li><a href="#">1</a></li>
+							<li><a class="active" href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">Next</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end products -->
+{% endblock %}
